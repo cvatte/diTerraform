@@ -1,0 +1,13 @@
+rg_name        = "Diyotta-rg"
+loc_name       = "eastus"
+network_range  = ["10.0.0.0/16"]
+vnet_name      = "Diyotta-vnet"
+subnet_name    = "Diyotta-subnet"
+subnet_prefix  = ["10.0.1.0/24"]
+NIC_name       = "Diyotta-NIC"
+nsg_name       = "diyotta-nsg"
+vm_name = "Diyotta"
+os_disk_name = ""
+computer_name = "Diyotta-VM"
+admin_username = "azureuser"
+admin_passwd = "admin@123"

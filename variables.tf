@@ -1,0 +1,13 @@
+variable "rg_name" {}
+variable "loc_name" {}
+variable "vnet_name" {}
+variable "network_range" {}
+variable "subnet_name" {}
+variable "subnet_prefix" {}
+variable "NIC_name" {}
+variable "nsg_name" {}
+variable "vm_name" {}
+variable "os_disk_name" {}
+variable "computer_name" {}
+variable "admin_passwd" {}
+variable "admin_username" {}
