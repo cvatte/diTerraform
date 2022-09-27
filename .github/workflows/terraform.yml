@@ -11,14 +11,6 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    # Set the working directory to main for the config files
-    # defaults:
-    #   run:
-    #     shell: bash
-    #     working-directory: ./main
-
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
@@ -34,11 +26,15 @@ jobs:
     - name: Terraform Init
       id: init
       env:
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
+        # ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        # ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        # ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_CLIENT_ID: fa10a517-9a3c-4c52-8044-1ca114e4e2d7
+        ARM_CLIENT_SECRET: vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM
+        ARM_TENANT_ID: 50f9a49e-4e73-47a1-9b1a-d85dd8573c98
+        ARM_SUBSCRIPTION_ID: ab6cd02b-10c4-4eff-90a4-2fe85f611aac
+        # RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
         # STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
         # CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
       # run: terraform init -backend-config="storage_account_name=$STORAGE_ACCOUNT" -backend-config="container_name=$CONTAINER_NAME" -backend-config="resource_group_name=$RESOURCE_GROUP"
@@ -48,10 +44,14 @@ jobs:
     - name: Terraform Plan
       id: plan
       env:
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        # ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        # ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        # ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_CLIENT_ID: fa10a517-9a3c-4c52-8044-1ca114e4e2d7
+        ARM_CLIENT_SECRET: vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM
+        ARM_TENANT_ID: 50f9a49e-4e73-47a1-9b1a-d85dd8573c98
+        ARM_SUBSCRIPTION_ID: ab6cd02b-10c4-4eff-90a4-2fe85f611aac
       # if: github.event_name == 'pull_request'
       run: terraform plan 
     
@@ -89,8 +89,8 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       env:
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        ARM_CLIENT_ID: fa10a517-9a3c-4c52-8044-1ca114e4e2d7
+        ARM_CLIENT_SECRET: vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM
+        ARM_TENANT_ID: 50f9a49e-4e73-47a1-9b1a-d85dd8573c98
+        ARM_SUBSCRIPTION_ID: ab6cd02b-10c4-4eff-90a4-2fe85f611aac
       run: terraform apply -auto-approve
