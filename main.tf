@@ -8,9 +8,9 @@ provider "azurerm" {
 }
 
 #specifies provider configurations for the providers being used in this project
-provider "azurerm" {
-  features {}
-}
+# provider "azurerm" {
+#   features {}
+# }
 
 terraform {
   required_providers {
