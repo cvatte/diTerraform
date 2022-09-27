@@ -1,10 +1,10 @@
 #specifies provider configurations for the providers being used in this project
 provider "azurerm" {
  features {}
- subscription_id = "fa10a517-9a3c-4c52-8044-1ca114e4e2d7"
- tenant_id       = "vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM"
- client_id       = "50f9a49e-4e73-47a1-9b1a-d85dd8573c98"
- client_secret   = "ab6cd02b-10c4-4eff-90a4-2fe85f611aac"
+ subscription_id = "d407f769-7b0c-4807-b509-5e96f3978c76"
+ tenant_id       = "c4a3076e-e94c-4b3e-a9d9-de6baf0d3604"
+ client_id       = "d4f2dfdd-e60a-4bef-a60b-5cda8918c359"
+ client_secret   = "M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8"
 }
 
 #specifies provider configurations for the providers being used in this project

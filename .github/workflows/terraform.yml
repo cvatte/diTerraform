@@ -30,10 +30,10 @@ jobs:
         # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
         # ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
         # ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_CLIENT_ID: fa10a517-9a3c-4c52-8044-1ca114e4e2d7
-        ARM_CLIENT_SECRET: vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM
-        ARM_TENANT_ID: 50f9a49e-4e73-47a1-9b1a-d85dd8573c98
-        ARM_SUBSCRIPTION_ID: ab6cd02b-10c4-4eff-90a4-2fe85f611aac
+        ARM_CLIENT_ID: d4f2dfdd-e60a-4bef-a60b-5cda8918c359
+        ARM_CLIENT_SECRET: M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8
+        ARM_TENANT_ID: c4a3076e-e94c-4b3e-a9d9-de6baf0d3604
+        ARM_SUBSCRIPTION_ID: d407f769-7b0c-4807-b509-5e96f3978c76
         # RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
         # STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
         # CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
@@ -48,10 +48,10 @@ jobs:
         # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
         # ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
         # ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_CLIENT_ID: fa10a517-9a3c-4c52-8044-1ca114e4e2d7
-        ARM_CLIENT_SECRET: vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM
-        ARM_TENANT_ID: 50f9a49e-4e73-47a1-9b1a-d85dd8573c98
-        ARM_SUBSCRIPTION_ID: ab6cd02b-10c4-4eff-90a4-2fe85f611aac
+        ARM_CLIENT_ID: d4f2dfdd-e60a-4bef-a60b-5cda8918c359
+        ARM_CLIENT_SECRET: M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8
+        ARM_TENANT_ID: c4a3076e-e94c-4b3e-a9d9-de6baf0d3604
+        ARM_SUBSCRIPTION_ID: d407f769-7b0c-4807-b509-5e96f3978c76
       # if: github.event_name == 'pull_request'
       run: terraform plan 
     
@@ -89,8 +89,8 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       env:
-        ARM_CLIENT_ID: fa10a517-9a3c-4c52-8044-1ca114e4e2d7
-        ARM_CLIENT_SECRET: vJ48Q~Jnsudf-mcrhqRQ4zWdYm7mlS4uBpnaTduM
-        ARM_TENANT_ID: 50f9a49e-4e73-47a1-9b1a-d85dd8573c98
-        ARM_SUBSCRIPTION_ID: ab6cd02b-10c4-4eff-90a4-2fe85f611aac
+        ARM_CLIENT_ID: d4f2dfdd-e60a-4bef-a60b-5cda8918c359
+        ARM_CLIENT_SECRET: M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8
+        ARM_TENANT_ID: c4a3076e-e94c-4b3e-a9d9-de6baf0d3604
+        ARM_SUBSCRIPTION_ID: d407f769-7b0c-4807-b509-5e96f3978c76
       run: terraform apply -auto-approve
