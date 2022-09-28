@@ -26,34 +26,26 @@ jobs:
     - name: Terraform Init
       id: init
       env:
-        # ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        # ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        # ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_CLIENT_ID: d4f2dfdd-e60a-4bef-a60b-5cda8918c359
-        ARM_CLIENT_SECRET: M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8
-        ARM_TENANT_ID: c4a3076e-e94c-4b3e-a9d9-de6baf0d3604
-        ARM_SUBSCRIPTION_ID: d407f769-7b0c-4807-b509-5e96f3978c76
-        # RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
-        # STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
-        # CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
-        # run: terraform init -backend-config="storage_account_name=diytf" -backend-config="container_name=$CONTAINER_NAME" -backend-config="resource_group_name=$RESOURCE_GROUP"
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
+        STORAGE_ACCOUNT: ${{ secrets.STORAGE_ACCOUNT }}
+        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+        run: terraform init -backend-config="storage_account_name=$STORAGE_ACCOUNT" -backend-config="container_name=$CONTAINER_NAME" -backend-config="resource_group_name=$RESOURCE_GROUP"
       
-      run: terraform init -backend-config="storage_account_name=diytf" -backend-config="container_name=ditfstate" -backend-config="resource_group_name=diyotta-tfstateRG"
+      # run: terraform init -backend-config="storage_account_name=diytf" -backend-config="container_name=ditfstate" -backend-config="resource_group_name=diyotta-tfstateRG"
       # run: terraform init
 
     # Run a terraform plan for pull requests only
     - name: Terraform Plan
       id: plan
       env:
-        # ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        # ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        # ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-        # ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        ARM_CLIENT_ID: d4f2dfdd-e60a-4bef-a60b-5cda8918c359
-        ARM_CLIENT_SECRET: M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8
-        ARM_TENANT_ID: c4a3076e-e94c-4b3e-a9d9-de6baf0d3604
-        ARM_SUBSCRIPTION_ID: d407f769-7b0c-4807-b509-5e96f3978c76
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       # if: github.event_name == 'pull_request'
       run: terraform plan 
     
@@ -91,8 +83,8 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       env:
-        ARM_CLIENT_ID: d4f2dfdd-e60a-4bef-a60b-5cda8918c359
-        ARM_CLIENT_SECRET: M9O8Q~TnYMcri5T2qFw4.fCuBI.mmNs8yMZGvaa8
-        ARM_TENANT_ID: c4a3076e-e94c-4b3e-a9d9-de6baf0d3604
-        ARM_SUBSCRIPTION_ID: d407f769-7b0c-4807-b509-5e96f3978c76
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       run: terraform apply -auto-approve
