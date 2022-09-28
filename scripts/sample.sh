@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt update -y
 sudo apt install default-jre -y
 wait
 sudo mkdir -p /data/dictrl
@@ -7,4 +8,3 @@ sudo su - root
 cp /etc/skel/.* /data/dictrl/
 sleep 5
 chown dictrl:dictrl -R /data/dictrl/
-# sleep 10
